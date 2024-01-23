@@ -5,16 +5,31 @@ import mongoose from "mongoose";
 const userSchema = mongoose.Schema({
     name:{
         type:String,
-        required:true
+        required:true,
+        trim:true,
+        validate: {
+            validator: (value) => value.length > 0,
+            message: 'Name is required'
+          }
     },
     username:{
         type:String,
         required:true,
-        unique:true
+        unique:true,
+        trim:true,
+        validate: {
+            validator: (value) => value.length > 0,
+            message: 'Username is required'
+          }
     },
     password:{
         type:String,
-        required:true
+        required:true,
+        trim:true,
+        validate: {
+            validator: (value) => value.length > 0,
+            message: 'Password is required'
+          }
     }
 })
 
